@@ -10,7 +10,7 @@ int main(void){
 	
 	printf("Before: %d\n",result);
 
-	result = factorial(facnum);
+	result = factRecursive(facnum);
 	
 	printf("After: %d\n",result);
 	
