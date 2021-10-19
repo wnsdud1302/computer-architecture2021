@@ -11,13 +11,14 @@ int main (void)
 	 * Write down the function to test and compile
 	 */
 
-	example1();
+	example4();
 
 	return 0;
 }
 
 void example1()
 {
+	
 	int a;
 	int *ptr;
 
@@ -26,41 +27,27 @@ void example1()
 	*ptr = 9;
 
 	a = 3;
-/*
+	
 	int b;
 	int *ptr1;
 
 	ptr1 = &b;
 	*ptr1 = 16;
 
-	b = 256; 
-*/
+	b = 256;
+
 }
 
 void example2()
 {
-	char mem[40] = {0, };
+	int mem[40] = {0, };
 	char *a;
-	int *b;
-	long long *c;
+
 	int i;
 
-	a = (char*)mem;
-	for (i = 0; i < 3; i++)
-	{
-		*(a + i) = 10;
-	}
-
-	b = (int*)(mem + 4);
-	for (i = 0; i < 3; i++)
-	{
-		*(b + i) = 1;;
-	}
-
-	c = (long long*)(mem + 16);
-	for (i = 0; i < 3; i++)
-	{
-		*(c + i) = 12;
+	a = (char *)mem;
+	for(i = 0; i < 6; i++){
+		*(a + i*3) = 10; //3byte당 char형인 10을 저장한다.
 	}
 
 }
@@ -72,7 +59,7 @@ void example4()
 	int i = 0;
 
 	printf("\nInput buffer value: ");
-	while (i < 10)
+	while (i < 5)
 	{
 		buf[i] = getchar() - '0';
 		i++;
