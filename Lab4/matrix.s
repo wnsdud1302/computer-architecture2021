@@ -14,24 +14,25 @@ Loop:
 	mul	r11,r6,r11							
 	add	r11,r11,r7,LSL #2 	
 
-	add	r11,r11,r0							
+	add	r11,r11,r1							
 
 	ldr	r12,[r11] //a주소계산					
 
 	mov	r11, #12
 	mul	r11,r7,r11							
 	add	r11,r11,r8,LSL #2				
-	add	r11,r11,r1							
+	add	r11,r11,r2							
 
 	ldr	r11,[r11] //b 주소계산							
 
 	mul	r12,r11,r12						
 	add	r9, r9, r12 // 연산
 	
-	add	r7,r7,#1							
-	cmp	r7,r3									 
+	add	r7,r7,#1
+	add r4,r0,#4 //u							
+	cmp	r7,r4									 
 	bne	Loop
-	mov	r7,#0 //r7 = u r3 = index 행렬크기만큼 loop				
+	mov	r7,#0 			
 
 												
 	mov	r11, #12
@@ -45,13 +46,14 @@ Loop:
 	mov	r9,#0
 	
 	add	r8,r8,#1
-	cmp	r8, r3								
+	add r4,r0,#8 //v
+	cmp	r8, r4								
 	bne	Loop
 
 	mov	r8,#0								
 	
-	add	r6,r6,#1
-	cmp	r6,r3									
+	add	r6,r6,#1 // 
+	cmp	r6,r0									
 	bne	Loop	// r8 = v, r6 = s, r3 = index 와 비교하여 loop실행
 
 	ldmfd sp!, {r0-r12,pc}
